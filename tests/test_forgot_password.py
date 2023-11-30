@@ -10,12 +10,10 @@ class TestForgotPassword:
 
     def enter_registered_email(self):
         login_page = LoginPageClass(self.driver)
-        login_page.clickSignIn()
+        login_page.clickForgotPassword()
         forgot_password = ForgotPasswordPageClass(self.driver)
-        forgot_password.clickForgotPassword()
         forgot_password.enterRegisteredEmail('testlateredot@gmail.com')
         forgot_password.clickRequestNewPassword()
         forgot_password.clickConfirmationYes()
         expected_error_msg = 'Please contact the eDOT Team to change the Admin password.'
         assert forgot_password.errorToContactAdmin().__eq__(expected_error_msg)
-
