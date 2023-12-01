@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 
+from pages.Dashboard import DashboardPageClass
+from pages.ForgotPassword import ForgotPasswordPageClass
+
 
 class LoginPageClass:
 
@@ -24,8 +27,15 @@ class LoginPageClass:
 
     def clickSignIn( self ):
         self.driver.find_element(By.XPATH, self.sign_in_button).click()
+        return DashboardPageClass(self.driver)
 
-    def errorMessage( self ):
+    def login_to_site(self, username, password):
+        self.enterUsername(username)
+        self.enterPassword(password)
+        self.tapTermsAndConditions()
+        return self.clickSignIn()
+
+    def errorMessage(self):
         return self.driver.find_element(By.ID, self.error_message_id).text
         # message = self.driver.find_element(By.ID, self.error_message_id)
         # message_text = message.text
@@ -33,3 +43,4 @@ class LoginPageClass:
 
     def clickForgotPassword( self ):
         self.driver.find_element(By.LINK_TEXT, self.forgot_password).click()
+        return ForgotPasswordPageClass(self.driver)

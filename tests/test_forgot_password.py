@@ -10,8 +10,8 @@ class TestForgotPassword:
 
     def enter_registered_email(self):
         login_page = LoginPageClass(self.driver)
-        login_page.clickForgotPassword()
-        forgot_password = ForgotPasswordPageClass(self.driver)
+        forgot_password = login_page.clickForgotPassword()
+        # forgot_password = ForgotPasswordPageClass(self.driver)
         forgot_password.enterRegisteredEmail('testlateredot@gmail.com')
         forgot_password.clickRequestNewPassword()
         forgot_password.clickConfirmationYes()

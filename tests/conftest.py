@@ -20,9 +20,8 @@ def set_up_tear_down(request):
     driver.maximize_window()
     app_url = ReadConfigurations.read_Configurations("basic information", "url")
     driver.get(app_url)
-    driver.implicitly_wait(10)
     request.cls.driver = driver
-
+    driver.implicitly_wait(10)
     yield driver
 
     # quit

@@ -1,4 +1,5 @@
 import pytest
+from selenium.webdriver.support import wait
 
 from pages.Dashboard import DashboardPageClass
 from pages.Login import LoginPageClass
@@ -13,8 +14,8 @@ class TestDashboardPage:
         login_page.enterUsername('ctiadmindev')
         login_page.enterPassword('Admin@12345')
         login_page.tapTermsAndConditions()
-        login_page.clickSignIn()
-        dashboard_page = DashboardPageClass(self.driver)
+        dashboard_page = login_page.clickSignIn()
+        dashboard_page.dashboardQuickAccess()
         dashboard_page.clickBellIcon()
         dashboard_page.clickNotificationCrossIcon()
 
@@ -23,8 +24,7 @@ class TestDashboardPage:
         login_page.enterUsername('ctiadmindev')
         login_page.enterPassword('Admin@12345')
         login_page.tapTermsAndConditions()
-        login_page.clickSignIn()
-        dashboard_page = DashboardPageClass(self.driver)
+        dashboard_page = login_page.clickSignIn()
+        dashboard_page.dashboardQuickAccess()
         dashboard_page.clickManageClientShipTab()
-        dashboard_page.clickDashboardMenuLink()
-        dashboard_page.clickReportsTab()
+
