@@ -16,10 +16,10 @@ class TestAddUser:
         manage_user_page = dashboard_page.clickManageUserTab()
         manage_user_page.manageUserPageTitle()
         manage_user_page.clickAddInternalUserBtn()
-        # add_int_user = AddInternalUser(self.driver)
-        # add_int_user.addUserFillingMandatoryFields("James", "98921001241", "j@mailinator.com", "James_")
-        # user_success_message = "Details updated successfully."
-        # assert add_int_user.displaySuccessMessage().__contains__(user_success_message)
-        # time.sleep(5)
+        add_int_user = AddInternalUser(self.driver)
+        add_int_user.addUserFillingMandatoryFields("James", "98921001241", "j@mailinator.com", "James_")
+        user_success_message = "Details updated successfully."
+        assert add_int_user.displaySuccessMessage().__contains__(user_success_message)
+
 
 

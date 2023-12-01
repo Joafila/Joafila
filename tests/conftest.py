@@ -21,7 +21,6 @@ def set_up_tear_down(request):
     app_url = ReadConfigurations.read_Configurations("basic information", "url")
     driver.get(app_url)
     request.cls.driver = driver
-    driver.implicitly_wait(10)
     yield driver
 
     # quit
